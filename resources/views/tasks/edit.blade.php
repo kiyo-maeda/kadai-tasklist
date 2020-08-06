@@ -8,6 +8,12 @@
         <div class="col-6">
             {!! Form::model($task, ['route' => ['tasks.update', $task->id], 'method' => 'put']) !!}
 
+                 {{-- 20200807ステータスカラム追加 --}}
+                <div class="form-group">
+                    {!! Form::label('status', 'ステータス:') !!}
+                    {!! Form::text('status', null, ['class' => 'form-control']) !!}
+                </div>
+
                 <div class="form-group">
                     {!! Form::label('content', 'タスク内容:') !!}
                     {!! Form::text('content', null, ['class' => 'form-control']) !!}
