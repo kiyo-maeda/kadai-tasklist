@@ -4,8 +4,15 @@
     <div class="center jumbotron">
         <div class="text-center">
             <h1>Welcome to the Tasklist</h1>
-            {{-- ユーザ登録ページへのリンク --}}
-            {!! link_to_route('signup.get', '登録!', [], ['class' => 'btn btn-lg btn-success']) !!}
+            @if (Auth::check())
+                {{ Auth::user()->name }}
+            
+            @else
+                {{-- ユーザ登録ページへのリンク --}}
+                {!! link_to_route('signup.get', '登録!', [], ['class' => 'btn btn-lg btn-success']) !!}
+                {{-- ログインページへのリンク --}}
+                {!! link_to_route('login', 'ログイン', [], ['class' => 'btn btn-lg btn-primary']) !!}
+            @endif
         </div>
     </div>
 @endsection
